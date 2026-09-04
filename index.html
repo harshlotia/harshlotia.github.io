@@ -70,7 +70,7 @@
   .wrap{max-width:1080px; margin:0 auto; padding:0 1.75rem;}
   .prose{max-width:640px;}
 
-  section{scroll-margin-top:5.5rem;}
+  section, footer{scroll-margin-top:5.5rem;}
 
   /* ---------- nav ---------- */
   nav{
@@ -209,8 +209,8 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="nav-cta" href="mailto:harshlotia@gmail.com">Get in touch</a>
   </div>
 </nav>
 
@@ -240,7 +240,7 @@
     </g>
   </svg>
   <div class="wrap hero-inner">
-    <p class="eyebrow">Applied AI Engineer — San Francisco / Remote</p>
+    <p class="eyebrow">Applied AI Engineer — Austin, TX / Remote</p>
     <h1>Harsh Lotia</h1>
     <p class="role">I build production <strong>LLM systems</strong> — retrieval pipelines, agentic workflows, and the evaluation harnesses that keep them honest.</p>
     <div class="hero-links">
@@ -255,11 +255,11 @@
   <div class="wrap">
     <div class="section-head prose">
       <p class="eyebrow">About</p>
-      <h2>Working the gap between a demo and a system</h2>
+      <h2>Shipped improvements people can feel</h2>
     </div>
     <div class="about prose">
-      <p>Most of my work sits between "the model answered correctly once" and "this holds up for 800 users on a Tuesday." That means retrieval that stays accurate as a document store grows past half a million files, agents that recover gracefully instead of hallucinating with confidence, and evaluation pipelines that catch a regression before a user does.</p>
-      <p>I'm currently the AI Engineer at <strong>Ticker</strong>, where I own the agentic AI stack end to end — LangGraph workflows, RAG over 500K+ documents, and the benchmarks that tell us whether a change actually made things better. Before that, an M.S. in Data Science at Indiana University, and a run of data science roles spanning LLM research, medical imaging, and ETL at scale.</p>
+      <p>At Ticker, the work shows up as numbers: 40% better retrieval quality, 35% more relevant answers, and a 60% faster ingestion pipeline — all running in production for 800+ users asking real financial questions, not benchmark prompts. Getting there meant rebuilding retrieval around embeddings, semantic chunking, MMR, and reranking, then building the evaluation harness that proved each change actually helped.</p>
+      <p>I'm currently the AI Engineer at <strong>Ticker</strong>, owning the agentic AI stack end to end — LangGraph workflows and RAG over 500K+ documents. Before that: an M.S. in Data Science at Indiana University, and a run of data science roles spanning LLM research, medical imaging, and ETL at scale.</p>
     </div>
   </div>
 </section>
@@ -274,7 +274,7 @@
       <li class="entry">
         <span class="date mono eyebrow">Jan 2026 — Present</span>
         <h3>AI Engineer</h3>
-        <p class="org">Ticker · San Francisco, CA (Remote)</p>
+        <p class="org">Ticker · Austin, TX (Remote)</p>
         <ul>
           <li>Led end-to-end development and production deployment of LangGraph-based agentic AI workflows powering portfolio insights and financial Q&amp;A for 800+ users.</li>
           <li>Built and optimized RAG pipelines across 500K+ documents using embeddings, semantic chunking, MMR, and reranking — sub-second retrieval, 40% improvement in retrieval quality.</li>
@@ -426,7 +426,7 @@
   </div>
 </section>
 
-<footer>
+<footer id="contact">
   <div class="wrap">
     <p class="eyebrow">Contact</p>
     <h2>Let's talk about what you're building.</h2>
@@ -438,7 +438,7 @@
     </div>
     <div class="foot-bottom">
       <span>Harsh Rajesh Lotia</span>
-      <span>Applied AI Engineer · San Francisco, CA</span>
+      <span>Applied AI Engineer · Austin, TX</span>
     </div>
   </div>
 </footer>

@@ -1,0 +1,444 @@
+<title>Harsh Lotia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F5F0;
+    --surface:#EAEDE6;
+    --ink:#1B2430;
+    --ink-soft:#5B6B67;
+    --line:#D7DCD1;
+    --accent:#C7791E;
+    --accent-ink:#3A2705;
+    --teal:#2B6E63;
+    --shadow: 0 1px 2px rgba(27,36,48,0.04), 0 8px 24px rgba(27,36,48,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#14181A;
+      --surface:#1C2123;
+      --ink:#EDEFEA;
+      --ink-soft:#9BA79F;
+      --line:#2B3230;
+      --accent:#E2A23F;
+      --accent-ink:#1A1206;
+      --teal:#5FBBAA;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14181A;
+    --surface:#1C2123;
+    --ink:#EDEFEA;
+    --ink-soft:#9BA79F;
+    --line:#2B3230;
+    --accent:#E2A23F;
+    --accent-ink:#1A1206;
+    --teal:#5FBBAA;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Public Sans", system-ui, -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.65;
+  }
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, "Times New Roman", serif;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--teal); text-decoration-color: color-mix(in srgb, var(--teal) 40%, transparent); text-underline-offset:3px;}
+  a:hover{text-decoration-color:var(--teal);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+  ::selection{background:var(--accent); color:var(--accent-ink);}
+
+  .mono{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;}
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.72rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 1.75rem;}
+  .prose{max-width:640px;}
+
+  section{scroll-margin-top:5.5rem;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:0.85rem 1.75rem;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  }
+  .nav-mark{font-family:"IBM Plex Mono", monospace; font-weight:600; font-size:0.95rem; color:var(--ink); text-decoration:none;}
+  .nav-links{display:flex; gap:1.5rem; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    color:var(--ink-soft); text-decoration:none; font-size:0.88rem; font-weight:500;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-family:"IBM Plex Mono", monospace; font-size:0.8rem; font-weight:500;
+    color:var(--ink); background:transparent; border:1px solid var(--line);
+    padding:0.4rem 0.85rem; border-radius:999px; text-decoration:none; white-space:nowrap;
+  }
+  .nav-cta:hover{border-color:var(--accent); color:var(--ink);}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; padding:5rem 0 4rem; overflow:hidden;}
+  .hero-field{
+    position:absolute; inset:-2rem -2rem auto auto; width:min(560px, 60vw); height:340px;
+    opacity:0.55; pointer-events:none;
+  }
+  @media (prefers-color-scheme: dark){ .hero-field{opacity:0.4;} }
+  .hero-inner{position:relative;}
+  .hero h1{font-size:clamp(2.5rem, 4.5vw + 1rem, 4.1rem); font-weight:600; line-height:1.04;}
+  .hero .role{margin-top:0.9rem; font-size:clamp(1.05rem,1.4vw + 0.7rem,1.3rem); color:var(--ink-soft); font-weight:400;}
+  .hero .role strong{color:var(--ink); font-weight:600;}
+  .hero-links{display:flex; flex-wrap:wrap; gap:0.7rem; margin-top:1.9rem;}
+  .pill-link{
+    font-family:"IBM Plex Mono", monospace; font-size:0.82rem;
+    display:inline-flex; align-items:center; gap:0.4rem;
+    border:1px solid var(--line); border-radius:999px; padding:0.5rem 1rem;
+    color:var(--ink); text-decoration:none; background:var(--surface);
+  }
+  .pill-link:hover{border-color:var(--accent); color:var(--ink);}
+  .pill-link.primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink); font-weight:600;}
+  .pill-link.primary:hover{color:var(--accent-ink);}
+
+  /* ---------- section headers ---------- */
+  .section{padding:3.6rem 0;}
+  .section + .section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:2.2rem;}
+  .section-head h2{font-size:clamp(1.5rem,2vw + 0.9rem,1.9rem); font-weight:600; margin-top:0.4rem;}
+
+  /* ---------- about ---------- */
+  .about p{margin:0 0 1.1rem; color:var(--ink);}
+  .about p:last-child{margin-bottom:0;}
+
+  /* ---------- experience timeline ---------- */
+  .timeline{
+    list-style:none; margin:0; padding:0 0 0 2rem;
+    border-left:1px solid var(--line);
+    display:flex; flex-direction:column; gap:2.6rem;
+  }
+  .entry{position:relative;}
+  .entry::before{
+    content:''; position:absolute; left:-2.11rem; top:0.4rem;
+    width:0.62rem; height:0.62rem; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 4px var(--paper);
+  }
+  .entry .date{font-variant-numeric:tabular-nums; display:block; margin-bottom:0.35rem;}
+  .entry h3{font-size:1.2rem; font-weight:600;}
+  .entry .org{color:var(--ink-soft); font-size:0.92rem; margin-top:0.15rem; margin-bottom:0.85rem;}
+  .entry ul{margin:0; padding-left:1.15rem; display:flex; flex-direction:column; gap:0.5rem;}
+  .entry li{color:var(--ink);}
+
+  /* ---------- projects ---------- */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:1.4rem;
+  }
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:1.6rem; display:flex; flex-direction:column; gap:0.9rem;
+    box-shadow:var(--shadow);
+  }
+  .card h3{font-size:1.15rem; font-weight:600;}
+  .tags{display:flex; flex-wrap:wrap; gap:0.4rem;}
+  .tag{
+    font-family:"IBM Plex Mono", monospace; font-size:0.72rem; color:var(--ink-soft);
+    border:1px solid var(--line); border-radius:999px; padding:0.2rem 0.6rem;
+  }
+  .card p{margin:0; color:var(--ink); font-size:0.95rem;}
+  .card-links{display:flex; gap:1.2rem; margin-top:auto; padding-top:0.3rem;}
+  .card-links a{font-family:"IBM Plex Mono", monospace; font-size:0.82rem; font-weight:500; text-decoration:none;}
+  .card-links a:hover{text-decoration:underline;}
+
+  /* ---------- skills ---------- */
+  .skill-groups{display:flex; flex-direction:column; gap:1.5rem;}
+  .skill-group .eyebrow{margin-bottom:0.6rem; display:block;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:0.5rem;}
+  .chip{
+    font-family:"IBM Plex Mono", monospace; font-size:0.8rem;
+    border:1px solid var(--line); border-radius:999px; padding:0.32rem 0.75rem;
+    color:var(--ink);
+  }
+
+  /* ---------- education ---------- */
+  .edu-card{display:flex; flex-direction:column; gap:0.3rem;}
+  .edu-card h3{font-size:1.15rem; font-weight:600;}
+  .edu-meta{color:var(--ink-soft); font-size:0.92rem;}
+  .coursework{margin-top:0.9rem; color:var(--ink-soft); font-size:0.88rem; line-height:1.7;}
+
+  /* ---------- footer ---------- */
+  footer{padding:3.6rem 0 4rem; border-top:1px solid var(--line);}
+  footer h2{font-size:clamp(1.6rem,2.5vw + 0.9rem,2.2rem); font-weight:600;}
+  footer p{color:var(--ink-soft); max-width:520px; margin:0.9rem 0 1.8rem;}
+  .foot-bottom{
+    margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:0.6rem 1.5rem; justify-content:space-between;
+    font-family:"IBM Plex Mono", monospace; font-size:0.78rem; color:var(--ink-soft);
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero-inner{animation:rise 0.6s ease-out both;}
+  }
+  @keyframes rise{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-mark" href="#top">HL/</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:harshlotia@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<div id="top" class="hero">
+  <svg class="hero-field" viewBox="0 0 600 340" aria-hidden="true">
+    <g style="stroke:var(--ink-soft); stroke-width:1; opacity:0.5;">
+      <line x1="80" y1="60" x2="180" y2="120"/>
+      <line x1="180" y1="120" x2="140" y2="210"/>
+      <line x1="180" y1="120" x2="300" y2="90"/>
+      <line x1="300" y1="90" x2="380" y2="170"/>
+      <line x1="380" y1="170" x2="470" y2="120"/>
+      <line x1="140" y1="210" x2="260" y2="250"/>
+      <line x1="260" y1="250" x2="380" y2="170"/>
+      <line x1="470" y1="120" x2="540" y2="60"/>
+    </g>
+    <g style="fill:var(--accent);">
+      <circle cx="80" cy="60" r="4"/>
+      <circle cx="300" cy="90" r="4"/>
+      <circle cx="470" cy="120" r="4"/>
+      <circle cx="260" cy="250" r="4"/>
+    </g>
+    <g style="fill:var(--teal);">
+      <circle cx="180" cy="120" r="5"/>
+      <circle cx="380" cy="170" r="5"/>
+      <circle cx="140" cy="210" r="4"/>
+      <circle cx="540" cy="60" r="4"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Applied AI Engineer — San Francisco / Remote</p>
+    <h1>Harsh Lotia</h1>
+    <p class="role">I build production <strong>LLM systems</strong> — retrieval pipelines, agentic workflows, and the evaluation harnesses that keep them honest.</p>
+    <div class="hero-links">
+      <a class="pill-link primary" href="mailto:harshlotia@gmail.com">✉ harshlotia@gmail.com</a>
+      <a class="pill-link" href="https://www.linkedin.com/in/harshlotia/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="pill-link" href="https://github.com/harshlotia" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</div>
+
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head prose">
+      <p class="eyebrow">About</p>
+      <h2>Working the gap between a demo and a system</h2>
+    </div>
+    <div class="about prose">
+      <p>Most of my work sits between "the model answered correctly once" and "this holds up for 800 users on a Tuesday." That means retrieval that stays accurate as a document store grows past half a million files, agents that recover gracefully instead of hallucinating with confidence, and evaluation pipelines that catch a regression before a user does.</p>
+      <p>I'm currently the AI Engineer at <strong>Ticker</strong>, where I own the agentic AI stack end to end — LangGraph workflows, RAG over 500K+ documents, and the benchmarks that tell us whether a change actually made things better. Before that, an M.S. in Data Science at Indiana University, and a run of data science roles spanning LLM research, medical imaging, and ETL at scale.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2>Career timeline</h2>
+    </div>
+    <ol class="timeline">
+      <li class="entry">
+        <span class="date mono eyebrow">Jan 2026 — Present</span>
+        <h3>AI Engineer</h3>
+        <p class="org">Ticker · San Francisco, CA (Remote)</p>
+        <ul>
+          <li>Led end-to-end development and production deployment of LangGraph-based agentic AI workflows powering portfolio insights and financial Q&amp;A for 800+ users.</li>
+          <li>Built and optimized RAG pipelines across 500K+ documents using embeddings, semantic chunking, MMR, and reranking — sub-second retrieval, 40% improvement in retrieval quality.</li>
+          <li>Designed evaluation workflows to measure retrieval and response quality and benchmark prompt/retrieval strategies, improving answer relevance by 35%.</li>
+          <li>Built scalable asynchronous ingestion and API-driven workflows, cutting pipeline runtime by 60%.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <span class="date mono eyebrow">Jun 2025 — Jan 2026</span>
+        <h3>Data Scientist, LLM Research</h3>
+        <p class="org">Indiana University · Bloomington, IN</p>
+        <ul>
+          <li>Built a dual-LLM experimentation pipeline to study model uncertainty and reasoning behavior across multiple open-source LLMs and fine-tuning approaches.</li>
+          <li>Designed reproducible evaluation frameworks using embedding similarity, entropy, confidence scoring, and entailment to compare model quality and failure modes.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <span class="date mono eyebrow">Mar 2024 — May 2025</span>
+        <h3>Data Scientist, Medical Imaging</h3>
+        <p class="org">Indiana University School of Optometry · Bloomington, IN</p>
+        <ul>
+          <li>Built automated Python/OpenCV pipelines to ingest, clean, and register 50,000+ high-resolution dOCT imaging frames.</li>
+          <li>Led a team of 3 evaluating image-registration approaches, improving alignment accuracy for downstream research.</li>
+        </ul>
+      </li>
+      <li class="entry">
+        <span class="date mono eyebrow">May 2024 — Dec 2024</span>
+        <h3>Data Scientist</h3>
+        <p class="org">Hyphenova · Los Angeles, CA</p>
+        <ul>
+          <li>Built Python/SQL ETL pipelines integrating multiple APIs, processing 1M+ records daily for downstream ML applications.</li>
+          <li>Developed and evaluated RNN and transformer-based NLP models, translating outputs into product recommendations with business stakeholders.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="work" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Selected Work</p>
+      <h2>Projects</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>AI Research Agent</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">Claude</span><span class="tag">Streamlit</span>
+        </div>
+        <p>A ReAct-style agent that runs 3–7 autonomous web searches, reasons over what it finds, and streams a structured, sourced report — executive summary through citations. Session history persists so past reports are never lost. Supported 100+ research sessions.</p>
+        <div class="card-links">
+          <a href="https://ai-research-agent-yv74luwzxrurhp8wziarhx.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+          <a href="https://github.com/harshlotia/ai-research-agent" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>DataCopilot</h3>
+        <div class="tags">
+          <span class="tag">Databricks</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span><span class="tag">Claude API</span>
+        </div>
+        <p>Natural-language analytics on top of Spark and Delta Lake — ask a question in plain English, get back SQL, a chart, and an anomaly check, across 100K+ records, cutting analysis turnaround by 60%.</p>
+        <div class="card-links">
+          <a href="https://github.com/harshlotia/DataCopilot" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>IPL Cricket Analytics</h3>
+        <div class="tags">
+          <span class="tag">Databricks</span><span class="tag">Medallion Architecture</span><span class="tag">Streamlit</span>
+        </div>
+        <p>Six seasons of IPL cricket data through a Delta Lake medallion pipeline into a dashboard — team win rates, head-to-head records, and season-by-season scoring trends across 10 teams and 12 venues. A side project born from genuinely caring who wins.</p>
+        <div class="card-links">
+          <a href="https://ipl-cricket-analytics-mlrqbmsazxrc4irsh6bftq.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a>
+          <a href="https://github.com/harshlotia/ipl-cricket-analytics" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Pawesome Adoptions</h3>
+        <div class="tags">
+          <span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">Bootstrap</span>
+        </div>
+        <p>A full-stack pet adoption platform built with a team of three — searchable listings for adopters, an admin console for shelters, CSRF-protected forms, and hashed auth throughout, managing 500+ records.</p>
+        <div class="card-links">
+          <a href="https://github.com/harshlotia/Pawesome-Adoptions" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Skills</p>
+      <h2>Tools I reach for</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <span class="eyebrow">AI &amp; LLM Engineering</span>
+        <div class="chip-row">
+          <span class="chip">LangGraph</span><span class="chip">AI Agents</span><span class="chip">MCP</span><span class="chip">RAG</span>
+          <span class="chip">Embeddings</span><span class="chip">Reranking</span><span class="chip">LLM Fine-Tuning</span>
+          <span class="chip">LLM Evaluation</span><span class="chip">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="eyebrow">Models &amp; Platforms</span>
+        <div class="chip-row">
+          <span class="chip">Claude SDK/API</span><span class="chip">Vertex AI</span><span class="chip">Gemini</span>
+          <span class="chip">Hugging Face Transformers</span><span class="chip">PyTorch</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="eyebrow">Backend &amp; Data</span>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">FastAPI</span><span class="chip">REST APIs</span>
+          <span class="chip">PySpark</span><span class="chip">Airflow</span><span class="chip">Kafka</span><span class="chip">Databricks</span>
+          <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">BigQuery</span><span class="chip">SQLite</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="eyebrow">Cloud &amp; Delivery</span>
+        <div class="chip-row">
+          <span class="chip">GCP</span><span class="chip">AWS</span><span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="eyebrow">Languages</span>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">C++</span><span class="chip">JavaScript</span><span class="chip">R</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Education</p>
+      <h2>Indiana University Bloomington</h2>
+    </div>
+    <div class="edu-card">
+      <h3>Master of Science in Data Science</h3>
+      <p class="edu-meta">August 2023 — May 2025 · GPA 4.0 · Bloomington, IN</p>
+      <p class="coursework">Coursework: Machine Learning, Deep Learning, Natural Language Processing, Statistics, Computer Vision, Network Analysis, Data Analytics, Data Visualization, Data Mining, Big Data Technologies, Mathematics.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk about what you're building.</h2>
+    <p>Open to conversations about applied AI roles, agentic systems, and retrieval infrastructure. The fastest way to reach me is email.</p>
+    <div class="hero-links">
+      <a class="pill-link primary" href="mailto:harshlotia@gmail.com">✉ harshlotia@gmail.com</a>
+      <a class="pill-link" href="https://www.linkedin.com/in/harshlotia/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="pill-link" href="https://github.com/harshlotia" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Harsh Rajesh Lotia</span>
+      <span>Applied AI Engineer · San Francisco, CA</span>
+    </div>
+  </div>
+</footer>
